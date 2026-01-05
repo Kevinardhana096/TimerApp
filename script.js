@@ -19,8 +19,11 @@ const firebaseConfig = {
     appId: "1:351900413922:web:d5d135cc50bbdd42ded3bb"
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// Initialize Firebase (SAFE - prevents multiple initialization)
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
 const database = firebase.database();
 const timerRef = database.ref('timer');
 
