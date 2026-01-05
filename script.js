@@ -2,15 +2,24 @@
 // FIREBASE CONFIGURATION
 // ============================================
 // PENTING: Ganti dengan konfigurasi Firebase Anda sendiri!
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyAeaSeJXjD8MRwqndNLrj0pTnisPZm_TLA",
+    authDomain: "timerapp-7faab.firebaseapp.com",
+    projectId: "timerapp-7faab",
+    storageBucket: "timerapp-7faab.firebasestorage.app",
+    messagingSenderId: "351900413922",
+    appId: "1:351900413922:web:d5d135cc50bbdd42ded3bb"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
