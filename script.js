@@ -4,7 +4,7 @@
 // PENTING: Ganti dengan konfigurasi Firebase Anda sendiri!
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -12,14 +12,12 @@ import { initializeApp } from "firebase/app";
 const firebaseConfig = {
     apiKey: "AIzaSyAeaSeJXjD8MRwqndNLrj0pTnisPZm_TLA",
     authDomain: "timerapp-7faab.firebaseapp.com",
+    databaseURL: "https://timerapp-7faab-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "timerapp-7faab",
-    storageBucket: "timerapp-7faab.firebasestorage.app",
+    storageBucket: "timerapp-7faab.appspot.com",
     messagingSenderId: "351900413922",
     appId: "1:351900413922:web:d5d135cc50bbdd42ded3bb"
 };
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
