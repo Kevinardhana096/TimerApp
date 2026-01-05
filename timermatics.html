@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Timer Pro - Danger Mode</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Firebase SDK v9 (compat mode untuk kemudahan) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">
+            <span class="title-icon">⏱️</span>
+            <span>TIMER PRO</span>
+        </h1>
+
+        <div style="height: 10px;"></div>
+
+        <div class="timer-display" id="timerDisplay">
+            <div class="time" id="timer">00:00:00.000</div>
+            <div class="mode-indicator" id="modeIndicator">Countdown Mode</div>
+            <div class="time-input-section" id="timeInputSection">
+                <div class="time-inputs">
+                    <div class="time-input-group">
+                        <input type="number" class="time-input" id="inputHours" value="00" min="0" max="99"
+                            onchange="validateInput(this, 99)" onfocus="this.select()">
+                        <span class="time-input-label">Hours</span>
+                    </div>
+                    <span class="time-separator">:</span>
+                    <div class="time-input-group">
+                        <input type="number" class="time-input" id="inputMinutes" value="00" min="0" max="59"
+                            onchange="validateInput(this, 59)" onfocus="this.select()">
+                        <span class="time-input-label">Minutes</span>
+                    </div>
+                    <span class="time-separator">:</span>
+                    <div class="time-input-group">
+                        <input type="number" class="time-input" id="inputSeconds" value="00" min="0" max="59"
+                            onchange="validateInput(this, 59)" onfocus="this.select()">
+                        <span class="time-input-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons-container">
+            <button class="btn btn-start" id="startBtn" onclick="startTimer()">
+                <svg viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                </svg>
+                <span>Start</span>
+            </button>
+
+            <button class="btn btn-pause" id="pauseBtn" onclick="togglePause()" style="display: none;">
+                <svg viewBox="0 0 24 24" id="pauseIcon">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                </svg>
+                <span id="pauseText">Pause</span>
+            </button>
+
+            <button class="btn btn-stop" id="stopBtn" onclick="stopTimer()" style="display: none;">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 6h12v12H6z" />
+                </svg>
+                <span>Reset</span>
+            </button>
+        </div>
+
+        <div class="shortcuts-info" id="shortcutsInfo">
+            <div class="shortcuts-title">Keyboard Shortcuts</div>
+            <div class="shortcuts-list">
+                <span class="shortcut"><kbd>Space</kbd> Start/Pause</span>
+                <span class="shortcut"><kbd>Esc</kbd> Reset</span>
+            </div>
+        </div>
+
+        <!-- Role Indicator Badge -->
+        <div class="role-badge" id="roleBadge">
+            <span id="roleText">VIEWER</span>
+        </div>
+
+        <!-- Connection Status -->
+        <div class="connection-status" id="connectionStatus">
+            <span class="status-dot"></span>
+            <span id="statusText">Connecting...</span>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-icon">🎉</div>
+            <h2 class="modal-title">Time's Up!</h2>
+            <p class="modal-message">Your countdown timer has finished.</p>
+            <button class="modal-btn" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
