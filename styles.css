@@ -22,7 +22,7 @@ body {
     align-items: flex-start;
     padding-top: 260px;
     font-family: 'Poppins', sans-serif;
-    background: url('virtual_background.png') no-repeat center center fixed;
+    background: url('virtual_background.PNG') no-repeat center center fixed;
     background-size: cover;
     padding-left: 20px;
     padding-right: 20px;
